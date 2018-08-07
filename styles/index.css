@@ -225,14 +225,20 @@ a{
   display: inline;
 }
 
-.projects{
+.projects .section-title{
+  text-align: center;
+}
+
+.projects .wrapper{
   display: flex;
   padding: 0 15px;
+  flex-wrap: wrap;
 }
 
 .projects .article{
   flex: 1;
-  margin: 0 30px;
+  margin: 30px;
+  flex-basis: calc(50% - 60px);
 }
 
 .article{
@@ -350,6 +356,10 @@ a{
   width: 70%;
   padding: 5% 0;
 }
+
+/* .intro .despr  .highlight{
+  font-family:
+} */
 
 .intro .iconfont{
   color: #3969ac;
