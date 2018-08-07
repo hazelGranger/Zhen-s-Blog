@@ -9,12 +9,25 @@ html{
 body{
   height: 100%;
   margin: 0;
-  background: url('../images/bg-squares2.png');
+  background: url('../images/bg-squares-day.png');
   background-position: 100%;
+  font-family: Rockwell, serif;
+  font-weight: 600;
+  color: #5f2800;
 }
+
+body.night{
+  background-image: url('../images/bg-squares-night.png');
+}
+
+
 
 h1,h2,h3,h4,h5,h6{
   margin: 0;
+}
+
+a{
+  text-decoration: none;
 }
 
 .iconfont{
@@ -29,7 +42,9 @@ h1,h2,h3,h4,h5,h6{
   overflow: hidden;
   background: #53aafb;
   position: relative;
-  background-image: linear-gradient( to bottom, #53aafb,#add8ff);
+  /* background-image: linear-gradient( to bottom, #53aafb,#add8ff); */
+  background: url('../images/header-bg.png');
+  background-size: contain;
 }
 
 .greetings.twilight{
@@ -37,31 +52,36 @@ h1,h2,h3,h4,h5,h6{
 }
 
 .greetings.night{
-  background-image: linear-gradient( to bottom, #566fc8,#6c94fc);
+  /* background-image: linear-gradient( to bottom, #566fc8,#6c94fc); */
+  background: url('../images/header-bg-night.png') ;
+  background-size: contain;
 }
 
 .greetings .title{
-  color: #f9cb33;
+  color: #d8790e;
   font-size: 2.5em;
   padding-left: 2em;
   display: inline-block;
   font-weight: bold;
-  text-shadow: 0 1px hsla(46, 94%, 45%, 1),
-  0 2px hsla(46, 94%, 40%, 1), 0 3px hsla(46, 94%, 35%, 1),
-  0 4px hsla(46, 94%, 30%, 1), 0 5px hsla(46, 94%, 25%, 1),
-  0 5px 10px black;
-  font-family: Rockwell, serif;
+  text-shadow: 0 1px #f7ca51,1px 2px #f7ca51,2px 3px #5f290f,
+  3px 4px #5f290f, 4px 5px #5f290f,
+  5px 6px #5f290f, 6px 7px #5f290f,7px 8px #5f290f;
   position: absolute;
   top: 50%;
   left: 50%;
-  transform: translate(-50%, -50%);
   width: 100%;
+  transform: translate(-50%, -50%) rotateX(6deg) rotateY(1deg) rotateZ(-1deg);
+  transform-style: preserve-3d;
+}
+
+.greetings.night .title{
+  color: #ffed7b;
 }
 
 .region{
   position: relative;
   width: 400px;
-  height: 130px;
+  height: 200px;
   float: right;
 }
 
@@ -98,6 +118,11 @@ h1,h2,h3,h4,h5,h6{
   100% { right: 0; transform: rotateY(180deg);}
 }
 
+@keyframes glow {
+  0% { text-shadow: 0 0 .1em,0 0 .3em; }
+  100% { text-shadow: none; }
+}
+
 
 .sun{
   position: absolute;
@@ -109,7 +134,13 @@ h1,h2,h3,h4,h5,h6{
 }
 
 .moon{
-
+  position: absolute;
+  left: 5px;
+  top: 5px;
+  color: #f7eb8d;
+  font-size: 40px;
+  animation: glow ease 5s infinite;
+  display: none;
 }
 
 .cloud{
@@ -156,10 +187,171 @@ h1,h2,h3,h4,h5,h6{
 }
 
 .icon--elephant{
-  color: #909090;
+  color: #aaa;
 }
 
 .icon-kiwi{
   animation-direction: reverse;
   color: #4e3c31;
+}
+
+.icon-icon{
+  animation-direction: reverse;
+  color: #4e3c31;
+}
+
+.icon-iconpanda{
+  animation-direction: reverse;
+}
+
+/* styles for night */
+.night .mountain{
+  color: #57a876;
+}
+
+.night .mt2{
+  color: #539e6e;
+}
+
+.night .region::before{
+  background-color: #539e6e;
+}
+
+.night .sun{
+  display: none;
+}
+
+.night .moon{
+  display: inline;
+}
+
+.projects{
+  display: flex;
+  padding: 0 15px;
+}
+
+.projects .article{
+  flex: 1;
+  margin: 0 30px;
+}
+
+.article{
+  background: #fff;
+  background-image: url('../images/article-bg-day.png');
+  border-radius: 7px;
+  margin: 0 auto;
+  box-shadow: 0 7px 0 hsla(142, 31%, 88%, 1), 0 10px 0 rgba(0,0,0,0.1);
+  max-width: 1024px;
+  padding: 45px;
+  background-repeat: no-repeat;
+  background-position: top right;
+  position: relative;
+}
+
+.night .article{
+  background-image: url('../images/article-bg-night.png');
+}
+
+.article .title{
+  font-size: 34px;
+  font-weight: 800;
+  color: rgba(95, 40, 0, 0.5);
+}
+
+.button{
+  display: inline-block;
+  transition: transform 300ms cubic-bezier(0.225, 3, 0.485, 0.895);
+  text-decoration: none;
+  border-radius: 7px;
+  font-weight: 800;
+  padding: 14px 30px;
+  line-height: 1.5;
+}
+
+.button:hover{
+  transform: scale(1.05);
+  backface-visibility: hidden;
+}
+
+.button-blue{
+  background-color: #396aac;
+  color: #FFF;
+  box-shadow: 0 7px 0 #263d70, 0 10px 0 rgba(0,0,0,0.1);
+}
+
+.article .button.more{
+  position: absolute;
+  bottom: -14px;
+  right: -30px;
+}
+
+.intro{
+  position: relative;
+  height: 260px;
+  margin: 60px auto;
+  max-width: 800px;
+}
+
+.intro .bg{
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+}
+
+.intro .bg div{
+  position: relative;
+  width: 100%;
+  background-size: 100% auto;
+  background-repeat: no-repeat;
+  background-position: top left;
+}
+
+.intro .bg .top{
+  background-image: url('../images/border-top-day.png');
+}
+
+.night .intro .bg .top{
+  background-image: url('../images/border-top-night.png');
+}
+
+.intro .bg .top::before{
+  content: '';
+  display: block;
+  padding-top: 13%;
+}
+
+.intro .bg .repeat{
+  background-image: url('../images/border-repeat-day.png')
+}
+
+.night .intro .bg .repeat{
+  background-image: url('../images/border-repeat-night.png')
+}
+
+.intro .bg .bottom{
+  background-image: url('../images/border-bottom-day.png')
+}
+
+.night .intro .bg .bottom{
+  background-image: url('../images/border-bottom-night.png')
+}
+
+.intro .bg .bottom::before{
+  content: '';
+  display: block;
+  padding-top: 16%;
+}
+
+.intro .despr{
+  position: relative;
+  margin: 0 auto;
+  width: 70%;
+  padding: 5% 0;
+}
+
+.intro .iconfont{
+  color: #3969ac;
+  font-size: 20px;
 }
