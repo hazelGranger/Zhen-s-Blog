@@ -12,18 +12,27 @@ if(!checkDayNight(time.getHours())){
 }
 
 function getLocation() {
-  var xhttp = new XMLHttpRequest();
-  xhttp.open("GET", "http://ip-api.com/json?callback=", true);
-  xhttp.onreadystatechange = function(){
-    if (this.readyState == 4 && this.status == 200) {
-      var geo = JSON.parse(this.response);
-      console.log(geo.countryCode,whichAnimal(geo.countryCode));
-      appearAnimal(whichAnimal(geo.countryCode));
-    }
-  }
-  xhttp.send();
+  // var xhttp = new XMLHttpRequest();
+  // xhttp.open("GET", "http://ip-api.com/json?callback=", true);
+  // xhttp.onreadystatechange = function(){
+  //   if (this.readyState == 4 && this.status == 200) {
+  //     var geo = JSON.parse(this.response);
+  //     console.log(geo.countryCode,whichAnimal(geo.countryCode));
+  //     appearAnimal(whichAnimal(geo.countryCode));
+  //   }
+  // }
+  // xhttp.send();
 
   // appearAnimal(whichAnimal('NZ'));
+
+  $.ajax({
+    url: "http://ip-api.com/json",
+    jsonp: "callback",
+    dataType: 'jsonp',
+    success: function(res){
+       appearAnimal(whichAnimal(res.countryCode));
+    }
+  })
 }
 
 function whichAnimal(country) {
