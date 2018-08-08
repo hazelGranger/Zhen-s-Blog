@@ -23,16 +23,7 @@ function getLocation() {
   // }
   // xhttp.send();
 
-  // appearAnimal(whichAnimal('NZ'));
-
-  $.ajax({
-    url: "http://ip-api.com/json",
-    jsonp: "callback",
-    dataType: 'jsonp',
-    success: function(res){
-       appearAnimal(whichAnimal(res.countryCode));
-    }
-  })
+  appearAnimal(whichAnimal('NZ'));
 }
 
 function whichAnimal(country) {
