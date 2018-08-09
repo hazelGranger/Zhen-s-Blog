@@ -334,11 +334,14 @@ a{
 }
 
 .intro .bg .repeat{
-  background-image: url('../images/border-repeat-day.png')
+  background-image: url('../images/border-repeat-day.png');
+  height: 60px;
+  background-repeat: repeat;
 }
 
 .night .intro .bg .repeat{
-  background-image: url('../images/border-repeat-night.png')
+  background-image: url('../images/border-repeat-night.png');
+  background-repeat: repeat;
 }
 
 .intro .bg .bottom{
